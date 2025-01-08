@@ -1,3 +1,10 @@
+
+const inputTitle = document.getElementById("title");
+const inputAuthor = document.getElementById("author");
+const inputPages = document.getElementById("pages");
+const inputRead = document.getElementById("read");
+
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -35,10 +42,15 @@ const addBookToDOM = (book) => {
 };
 
 
-
-
-
-
+const showBtn = document.getElementById("showBtn");
+const dialog = document.getElementById("dialog");
+const closeBtn = document.getElementById("closeBtn");
+showBtn.addEventListener("click", (e) => {
+    dialog.showModal();
+})
+closeBtn.addEventListener("click", (e) => {
+    dialog.close();
+})
 
 
 
@@ -49,3 +61,21 @@ myLibrary.push((new Book("Rani Tatt", "Harmanjeet Singh", 99, false)));
 myLibrary.forEach( (book) => {
     addBookToDOM(book);
 } );
+
+
+const submit = document.getElementById("submit");
+submit.addEventListener("click",(e) => {
+    const newTitle = inputTitle.value;
+    const newAuthor = inputAuthor.value;
+    const newPages  = inputPages.value;
+    const newRead = inputRead.checked;
+    
+    console.log("Title:", newTitle);
+    console.log("Author:", newAuthor);
+    console.log("Pages:", newPages);
+    console.log("Read:", newRead);
+
+    const newBook = new Book(newTitle,newAuthor,newPages,newRead);
+    myLibrary.push(newBook);
+    addBookToDOM(newBook);
+})
