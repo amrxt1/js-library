@@ -1,5 +1,3 @@
-const myLibrary = [];
-
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -11,9 +9,43 @@ function Book(title, author, pages, read) {
     };
 }
 
-const book = new Book("random title", "author", 202, false);
-book.displayDetails(); 
+const addBookToDOM = (book) => {
+    const bookObj = document.createElement("div");
+    bookObj.classList.add("book");
+    const title = document.createElement("p");
+    title.classList.add("title");
+    const author = document.createElement("p");
+    author.classList.add("author");
+    const pages = document.createElement("p");
+    pages.classList.add("pages");
+    const read = document.createElement("p");
+    read.classList.add("read");
 
-function addBookToLibrary() {
-    
-}
+    title.innerHTML = book.title;
+    author.innerHTML = book.author;
+    pages.innerHTML = book.pages;
+    read.innerHTML = (book.read) ? "Read" : "Not Read";
+
+    bookObj.appendChild(title);
+    bookObj.appendChild(author);
+    bookObj.appendChild(pages);
+    bookObj.appendChild(read);
+
+    document.getElementById("books").appendChild(bookObj);
+};
+
+
+
+
+
+
+
+
+
+const myLibrary = [];
+myLibrary.push((new Book("Never Split The Difference", "Napoleon Hill", 144, true)));
+myLibrary.push((new Book("Rani Tatt", "Harmanjeet Singh", 99, false)));
+
+myLibrary.forEach( (book) => {
+    addBookToDOM(book);
+} );
