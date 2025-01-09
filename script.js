@@ -1,11 +1,11 @@
-
 const inputTitle = document.getElementById("title");
 const inputAuthor = document.getElementById("author");
 const inputPages = document.getElementById("pages");
 const inputRead = document.getElementById("read");
-
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
+    this.id = (myLibrary.length<1) ? 1 : myLibrary[myLibrary.length - 1].id+1 ;
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -19,6 +19,7 @@ function Book(title, author, pages, read) {
 const addBookToDOM = (book) => {
     const bookObj = document.createElement("div");
     bookObj.classList.add("book");
+    bookObj.id = book.id;
     const title = document.createElement("p");
     title.classList.add("title");
     const author = document.createElement("p");
@@ -41,7 +42,6 @@ const addBookToDOM = (book) => {
     document.getElementById("books").appendChild(bookObj);
 };
 
-
 const showBtn = document.getElementById("showBtn");
 const dialog = document.getElementById("dialog");
 const closeBtn = document.getElementById("closeBtn");
@@ -52,16 +52,12 @@ closeBtn.addEventListener("click", (e) => {
     dialog.close();
 })
 
-
-
-const myLibrary = [];
 myLibrary.push((new Book("Never Split The Difference", "Napoleon Hill", 144, true)));
 myLibrary.push((new Book("Rani Tatt", "Harmanjeet Singh", 99, false)));
 
 myLibrary.forEach( (book) => {
     addBookToDOM(book);
 } );
-
 
 const submit = document.getElementById("submit");
 submit.addEventListener("click",(e) => {
@@ -78,4 +74,5 @@ submit.addEventListener("click",(e) => {
     const newBook = new Book(newTitle,newAuthor,newPages,newRead);
     myLibrary.push(newBook);
     addBookToDOM(newBook);
-})
+    console.log(myLibrary);
+});
