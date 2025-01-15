@@ -33,3 +33,7 @@ dialog::backdrop {
 dialog p{
     font-size: 2rem;
 }
+
+.hidden{
+    display: hidden;
+}

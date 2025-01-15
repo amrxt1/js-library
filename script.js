@@ -14,6 +14,9 @@ function Book(title, author, pages, read) {
         console.log(this.title);
         console.log(this.author);
     };
+    this.toggleRead = function() {
+        this.read = !(this.read);
+    }
 }
 
 function removeBookFromDOM(id){
@@ -29,6 +32,34 @@ function removeBook(bookID){
     removeBookFromDOM(bookID);
     removeBookFromCollection(bookID);
 }
+
+function toggleReadStatusCollection(bookID){
+    myLibrary.forEach((book) => {
+        if(book.id == bookID){
+            book.toggleRead();
+            return;
+        }
+    });
+}
+
+function toggleReadStatusDOM(bookID){
+    const readDOM = document.getElementById(bookID).getElementsByClassName("read")[0];
+    const removeBtn = document.getElementById(bookID).getElementsByClassName("read-btn")[0];
+
+    myLibrary.forEach((book) => {
+        if(book.id == bookID){
+            readDOM.textContent = "Status : " + ((book.read) ? "Read" : "Not Read");
+            removeBtn.textContent = "Change to " + (!(book.read) ? "Read" : "Not Read");
+            return;
+        }
+    });}
+
+function toggleReadStatus(id){
+    toggleReadStatusCollection(id);
+    toggleReadStatusDOM(id);
+}
+
+
 const addBookToDOM = (book) => {
     const bookObj = document.createElement("div");
     bookObj.classList.add("book");
@@ -46,16 +77,23 @@ const addBookToDOM = (book) => {
     title.innerHTML = book.title;
     author.innerHTML = book.author;
     pages.innerHTML = book.pages;
-    read.innerHTML = (book.read) ? "Read" : "Not Read";
+    read.innerHTML = "Status : " + ((book.read) ? "Read" : "Not Read");
 
     bookObj.appendChild(title);
     bookObj.appendChild(author);
     bookObj.appendChild(pages);
     bookObj.appendChild(read);
 
+    const readBtn = document.createElement("button");
+    readBtn.addEventListener("click", () => toggleReadStatus(bookID));
+    readBtn.textContent = "Change to " + (!(book.read) ? "Read" : "Not Read");
+    readBtn.classList.add("read-btn");
+    bookObj.appendChild(readBtn);
+
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
     removeBtn.addEventListener("click", () => removeBook(bookID));
+    removeBtn.classList.add("remove-btn");
     bookObj.appendChild(removeBtn);
 
     document.getElementById("books").appendChild(bookObj);
