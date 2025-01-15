@@ -2,7 +2,7 @@ const inputTitle = document.getElementById("title");
 const inputAuthor = document.getElementById("author");
 const inputPages = document.getElementById("pages");
 const inputRead = document.getElementById("read");
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.id = (myLibrary.length<1) ? 1 : myLibrary[myLibrary.length - 1].id+1 ;
@@ -16,10 +16,24 @@ function Book(title, author, pages, read) {
     };
 }
 
+function removeBookFromDOM(id){
+    const requiredBook = document.getElementById(id);
+    requiredBook.remove();
+}
+
+function removeBookFromCollection(id){
+    myLibrary = myLibrary.filter((book) => book.id != id);
+}
+
+function removeBook(bookID){
+    removeBookFromDOM(bookID);
+    removeBookFromCollection(bookID);
+}
 const addBookToDOM = (book) => {
     const bookObj = document.createElement("div");
     bookObj.classList.add("book");
-    bookObj.id = book.id;
+    const bookID = book.id;
+    bookObj.id = bookID;
     const title = document.createElement("p");
     title.classList.add("title");
     const author = document.createElement("p");
@@ -38,6 +52,11 @@ const addBookToDOM = (book) => {
     bookObj.appendChild(author);
     bookObj.appendChild(pages);
     bookObj.appendChild(read);
+
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.addEventListener("click", () => removeBook(bookID));
+    bookObj.appendChild(removeBtn);
 
     document.getElementById("books").appendChild(bookObj);
 };
