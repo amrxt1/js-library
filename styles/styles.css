@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
-    background-color: #D7DADC;
+    background-color: #F3F4F6;
+    color: #2C2F33;
+
+    font-family: 'Roboto','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
 .header-container{
     text-align: center;
-    padding: 1rem 1.7rem;
+    padding: 3rem 5.1rem;
 }
 
 .header-container h1{
@@ -19,7 +24,12 @@
 .book{
     margin: 2rem 3.4rem;
     padding: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.33rem;
 }
+
 
 dialog[open] {
     display: flex;
@@ -36,4 +46,70 @@ dialog p{
 
 .hidden{
     display: hidden;
+}
+
+
+
+.title{
+    font-size: 1.33rem;
+    font-weight: 600;
+}
+.author{
+    font-style: italic;
+}
+
+#showBtn{
+    width: calc(100% - 8.8rem);
+    margin: 0rem 3.9rem;
+    padding: 1rem 1.7rem;
+
+    border: 3px solid rgb(3, 79, 3);
+    border-radius: 0.66rem;
+
+    font-size: 1.2rem;
+
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+#showBtn:hover, #showBtn:active{
+    background-color: #2C2F33;
+    border-color: #2C2F33;
+    color: white;
+}
+
+.btns{
+    display: flex;
+}
+
+.remove-btn, .read-btn{
+    flex: 1;
+    padding: 0.5rem 0.85rem;
+
+    border: 2px solid #2C2F33;
+
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+.remove-btn{
+    border-top-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+}
+.read-btn{
+    border-top-left-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;
+}
+
+.read-btn:hover, .remove-btn:hover, .read-btn:active, .remove-btn:active{
+    background-color: rgb(154, 227, 154);
+    border-color: black;
+    color: black;
+}
+
+.remove-btn:hover, .remove-btn:active{
+    background-color: rgb(218, 179, 179);
+}
+
+.mono{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
 }

@@ -75,8 +75,8 @@ const addBookToDOM = (book) => {
     read.classList.add("read");
 
     title.innerHTML = book.title;
-    author.innerHTML = book.author;
-    pages.innerHTML = book.pages;
+    author.innerHTML = "Written by " + book.author;
+    pages.innerHTML = book.pages + " pages";
     read.innerHTML = "Status : " + ((book.read) ? "Read" : "Not Read");
 
     bookObj.appendChild(title);
@@ -84,18 +84,23 @@ const addBookToDOM = (book) => {
     bookObj.appendChild(pages);
     bookObj.appendChild(read);
 
+    const buttons = document.createElement("div");
+    buttons.classList.add("btns");
+
     const readBtn = document.createElement("button");
     readBtn.addEventListener("click", () => toggleReadStatus(bookID));
     readBtn.textContent = "Change to " + (!(book.read) ? "Read" : "Not Read");
     readBtn.classList.add("read-btn");
-    bookObj.appendChild(readBtn);
+    buttons.appendChild(readBtn);
 
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
     removeBtn.addEventListener("click", () => removeBook(bookID));
     removeBtn.classList.add("remove-btn");
-    bookObj.appendChild(removeBtn);
+    buttons.appendChild(removeBtn);
 
+    bookObj.appendChild(buttons);
+    
     document.getElementById("books").appendChild(bookObj);
 };
 
