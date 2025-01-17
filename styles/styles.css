@@ -7,11 +7,16 @@ body{
     background-color: #F3F4F6;
     color: #2C2F33;
 }
-
-
+header {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  }
+  
 .header-container{
+    background-color: #2C2F33;
+    color: #F3F4F6;
     text-align: center;
     padding: 3rem 5.1rem;
+    padding-bottom: 10px;
 }
 
 .header-container h1{
@@ -65,6 +70,7 @@ dialog p{
 #showBtn{
     width: calc(100% - 6.8rem);
     margin: 0rem 3.4rem;
+    margin-top: 3.4rem;
     padding: 1rem 1.7rem;
 
     border: 3px solid rgb(3, 79, 3);
