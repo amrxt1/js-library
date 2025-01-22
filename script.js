@@ -100,7 +100,7 @@ const addBookToDOM = (book) => {
     buttons.appendChild(removeBtn);
 
     bookObj.appendChild(buttons);
-    
+        
     document.getElementById("books").appendChild(bookObj);
 };
 
@@ -121,20 +121,36 @@ myLibrary.forEach( (book) => {
     addBookToDOM(book);
 } );
 
+function validateBook(book){
+    
+}
+
 const submit = document.getElementById("submit");
 submit.addEventListener("click",(e) => {
     const newTitle = inputTitle.value;
     const newAuthor = inputAuthor.value;
     const newPages  = inputPages.value;
     const newRead = inputRead.checked;
-    
+/*    
     console.log("Title:", newTitle);
     console.log("Author:", newAuthor);
     console.log("Pages:", newPages);
     console.log("Read:", newRead);
+*/
 
-    const newBook = new Book(newTitle,newAuthor,newPages,newRead);
-    myLibrary.push(newBook);
-    addBookToDOM(newBook);
-    console.log(myLibrary);
+    if(newTitle || newAuthor || newPages){
+        const newBook = new Book(newTitle,newAuthor,newPages,newRead);
+        myLibrary.push(newBook);
+        addBookToDOM(newBook);
+
+        inputAuthor.value = "";
+        inputPages.value = "";
+        inputTitle.value = "";
+
+        return;
+    }
+    else{
+        alert("Invalid input. Please try again!");
+        return;
+    }
 });
