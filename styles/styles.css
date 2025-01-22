@@ -22,8 +22,7 @@ header {
     background-color: var(--secondary);
     color: var(--primary);
     text-align: center;
-    padding: 1.67rem;
-    padding-bottom: 1rem;
+    padding:1rem 1.67rem;
 }
 
 .header-container h1{
@@ -168,4 +167,21 @@ dialog p{
     grid-template-columns: repeat(2, minmax(200px, 1fr));
     grid-template-rows: auto;
     gap: 2rem;
+}
+
+@media only screen and (max-width: 480px){
+    #showBtn{
+        width: calc(100% - 2rem);
+        margin: 0rem 1rem;
+        margin-top: 1rem;
+        padding: 1rem 1.7rem;    
+    }
+    #books{
+        margin: 1rem 1rem;
+
+        display: grid;
+        grid-template-columns: minmax(200px, 1fr);
+        grid-template-rows: auto;
+        gap: 2rem;    
+    }
 }
