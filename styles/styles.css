@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 *{
     font-family: 'Roboto','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    --primary: #FBFFFE;
-    --secondary: #28502E;
+    --primary: #2A2D34;
+    --secondary: #D5C4A1;
 
-    --accent: #FAA916;
-    --text: #1B2F33;
+    --accent: #705D56;
+    --text: #E5E5E5;
 }
 
 
@@ -20,17 +20,22 @@ header {
   
 .header-container{
     background-color: var(--secondary);
-    color: var(--primary);
+    color: var(--accent);
     text-align: center;
     padding:1rem 1.67rem;
+
 }
 
 .header-container h1{
     font-size: 2.2rem;
+    font-weight: 900;
+
 }
 
 .header-container h2{
     font-size: 1.1rem;
+    font-weight: 900;
+
 }
 
 .book{
@@ -152,12 +157,12 @@ dialog p{
 }
 
 .remove-btn:hover, .remove-btn:active, #closeBtn:hover, #closeBtn:active{
-    background-color: rgb(218, 179, 179);
+    background-color: rgb(194, 158, 158);
 }
 
 .mono{
     font-family: 'Courier New', Courier, monospace;
-    font-weight: 600;
+    font-weight: 900;
 }
 
 #books{

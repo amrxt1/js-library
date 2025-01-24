@@ -116,6 +116,8 @@ closeBtn.addEventListener("click", (e) => {
 
 myLibrary.push((new Book("Never Split The Difference", "Napoleon Hill", 144, true)));
 myLibrary.push((new Book("Rani Tatt", "Harmanjeet Singh", 99, false)));
+myLibrary.push((new Book("Random Book", "Random Guy", 321, false)));
+myLibrary.push((new Book("Non-Random Book", "Non-Random Guy", 123, true)));
 
 myLibrary.forEach( (book) => {
     addBookToDOM(book);
