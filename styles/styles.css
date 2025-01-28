@@ -1,22 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 *{
-    font-family: 'Roboto','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     --primary: #2A2D34;
     --secondary: #D5C4A1;
 
     --accent: #705D56;
     --text: #E5E5E5;
+
+    --header: #EDE3D4;
+    --bgc: #3E4C59 ;
+}
+
+h1,h2,*{
+    font-family: 'Courier New', Courier, monospace;
 }
 
 
-
 body{
-    background-color: var(--primary);
+    background-color: var(--bgc);
     color: var(--text);
 }
 header {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-  }
+}
   
 .header-container{
     background-color: var(--secondary);
@@ -24,6 +29,7 @@ header {
     text-align: center;
     padding:1rem 1.67rem;
 
+    background-color: var(--header);
 }
 
 .header-container h1{
